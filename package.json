@@ -1,0 +1,11 @@
+{
+  "name": "sealed-case-anna",
+  "version": "0.1.0",
+  "description": "Sealed Case as an Anna App: a one-player murder mystery whose AI game master is never told the answer.",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test"
+  }
+}

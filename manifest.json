@@ -1,0 +1,27 @@
+{
+  "schema": 3,
+  "version": "0.1.1",
+  "required_executas": [],
+  "storage": { "kv": true, "files": false },
+  "system_prompt_addendum": "Sealed Case is a solo murder mystery that runs in its own window. When the user wants to play, call open_app_view(app_id=573, view=\"case\"). You are not given the solution and must not guess the culprit, invent clues, or describe evidence the player has not found. While the window is open, pass the user's game instructions through as open_app_view(app_id=573, view=\"case\", payload={\"say\": \"<the user's words>\"}). Only the player can confirm an accusation, by clicking in the window. Reply in the language the user writes in.",
+  "tags": ["game", "mystery", "puzzle"],
+  "ui": {
+    "form_factors": ["desktop", "mobile"],
+    "bundle": { "format": "static-spa", "entry": "index.html" },
+    "views": [
+      {
+        "name": "case",
+        "title": "Sealed Case",
+        "default": true,
+        "min_size": { "w": 320, "h": 480 },
+        "default_size": { "w": 1120, "h": 760 },
+        "max_size": { "w": 1600, "h": 1200 },
+        "resizable": true,
+        "movable": true,
+        "single_instance": true,
+        "icon": "icon.svg"
+      }
+    ],
+    "host_api": { "llm": ["complete"], "storage": ["get", "set", "delete"] }
+  }
+}

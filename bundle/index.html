@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Sealed Case — The Lantern Room</title>
+    <meta
+      name="description"
+      content="A one-player murder mystery. Your AI game master is never told the answer, and only you can make the accusation."
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="lamp" aria-hidden="true"></div>
+
+    <header class="masthead">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <div>
+          <h1>Sealed Case</h1>
+          <p class="brand-sub">The Lantern Room &middot; Jimbocho, Tokyo &middot; 02:40</p>
+        </div>
+      </div>
+      <div class="status busy" id="gm-status" role="status">
+        <span class="dot" aria-hidden="true"></span>
+        <span class="status-text" id="gm-status-text">Connecting to the GM&hellip;</span>
+      </div>
+    </header>
+
+    <main>
+      <!-- centre: the story and everything the player does -->
+      <section class="stage" aria-label="The case">
+        <div id="stage-body"></div>
+      </section>
+
+      <!-- left rail: the room -->
+      <aside class="rail rail-room" aria-label="The room">
+        <h2>The room</h2>
+        <p class="rail-hint" id="room-hint">Not open yet.</p>
+        <ul class="objects" id="objects"></ul>
+
+        <h2 class="spaced">The three of them</h2>
+        <ul class="suspects" id="suspects"></ul>
+      </aside>
+
+      <!-- right rail: the GM -->
+      <aside class="rail rail-gm" aria-label="The GM's notebook">
+        <h2>The GM's notebook</h2>
+
+        <div class="envelope">
+          <div class="envelope-art" aria-hidden="true">
+            <svg viewBox="0 0 64 44" width="64" height="44">
+              <rect x="1" y="1" width="62" height="42" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M1 4l31 24L63 4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="32" cy="30" r="6.5" fill="currentColor" opacity=".18"/>
+              <circle cx="32" cy="30" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <p class="envelope-text">
+            Your GM can search the room, question the suspects and put an accusation on
+            the table when you ask. It is not told the answer: it learns what you learn.
+            It cannot make the accusation. Only your click can.
+          </p>
+        </div>
+
+        <label class="gm-label" for="gm-input">Talk to the GM</label>
+        <div class="gm-ask">
+          <input
+            id="gm-input"
+            type="text"
+            maxlength="500"
+            autocomplete="off"
+            placeholder="e.g. Look at the bottle"
+          />
+          <button type="button" class="act" id="gm-send">Ask</button>
+        </div>
+
+        <h3 class="spaced">What the GM has done</h3>
+        <ol class="gm-log" id="gm-log" aria-live="polite">
+          <li class="gm-empty">Nothing yet.</li>
+        </ol>
+      </aside>
+    </main>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
